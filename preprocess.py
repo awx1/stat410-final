@@ -64,8 +64,10 @@ def sal_stat_per_year(year, links):
 		count = 0
 		for row in stats_tot:
 			### Ignore header
-			if (row == ['Rk','Player', 'Link', 'Pos', 'Age', 'Tm', 'G', 'GS', 'MP', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', '2P', '2PA', '2P%', 'eFG%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS', 'Year']):
-				stats_header = row
+			if (row == ['Rk','Player', 'Link', 'Pos', 'Age', 'Tm', 'G', 'GS', 'MP', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', '2P', '2PA', '2P%', 'eFG%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS']):
+				stats_header = row.copy()
+				
+				stats_header.append('Year')
 				stats_header.append('Salary')
 				stats_header.append('Signed Using')
 				stats_sal.append(stats_header)
@@ -146,4 +148,3 @@ links = sal_stat_per_year('201516',links)
 links = sal_stat_per_year('201415',links)
 links = sal_stat_per_year('201314',links)
 links = sal_stat_per_year('201213',links)
-
