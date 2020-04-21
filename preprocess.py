@@ -66,7 +66,7 @@ def sal_stat_per_year(year, links):
 			### Ignore header
 			if (row == ['Rk','Player', 'Link', 'Pos', 'Age', 'Tm', 'G', 'GS', 'MP', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', '2P', '2PA', '2P%', 'eFG%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS']):
 				stats_header = row.copy()
-				
+
 				stats_header.append('Year')
 				stats_header.append('Salary')
 				stats_header.append('Signed Using')
@@ -75,11 +75,26 @@ def sal_stat_per_year(year, links):
 			### Builds new csv
 			if (row[5] == 'TOT'):
 				pass
+			## Baseline Conditions
+			elif int(row[6]) < 5:
+				print("Played less than 5 games: " + str(row[1]))
+				pass
+			elif float(row[8]) < 1:
+				print("Played less than 1 minute per game: " + str(row[1]))
+				pass
+			elif float(row[10]) < 1:
+				print("Attempted less than 1 FG per game: " + str(row[1]))
+				pass
+			elif float(row[20]) < 0.2:
+				print("Attempted less than 1 FT per game: " + str(row[1]))
+				pass
+			elif float(row[30]) < 1:
+				print("Averaged less than 1 point per game: " + str(row[1]))
+				pass
 			else:
 				name = row[1]
 				team = row[5]
 				## If exists from regular contract
-				#print(name)
 				if (name, team) in sal_dict.keys():
 					salary = sal_dict[(name, team)][0]
 					contract = sal_dict[(name, team)][1]
@@ -101,21 +116,7 @@ def sal_stat_per_year(year, links):
 							new_row.append(salary)
 							new_row.append(contract)
 							stats_sal.append(new_row)
-						# if name in repeats.keys():
-						# 	repeats[name].append(team)
-						# 	print("Played with more than one team")
-						# 	print(name)
-						# 	print(repeats[name])
-						# else:
-						# 	print("Name and team: " + str((name, team)))
-						# 	print("Team(s) paying: " + str(player_dict[name]))
-						# 	salary = sal_dict[(name, player_dict[name])][0]
-						# 	contract = sal_dict[(name, player_dict[name])][1]
-
-						# 	new_row = row.copy()
-						# 	new_row.append(salary)
-						# 	new_row.append(contract)
-						# 	repeats[name] = [team]
+					## Player name is partial
 					elif (subName(name, player_dict.keys()) != []):
 						new_name = subName(name, player_dict.keys())[0]
 						for team_pay in player_dict[new_name]:
@@ -129,10 +130,8 @@ def sal_stat_per_year(year, links):
 							stats_sal.append(new_row)
 					### Cannot find a playing player's contract	
 					else:
-						print(name)
-						count += 1
 						pass
-	print(count)			
+
 	with open("/Users/alexanderxiong/Documents/STAT 410/stat410-final/stats_sal/stats_sal-" + year + ".csv", "w", newline = "") as f:
 		writer = csv.writer(f)
 		writer.writerows(stats_sal)
@@ -148,3 +147,4 @@ links = sal_stat_per_year('201516',links)
 links = sal_stat_per_year('201415',links)
 links = sal_stat_per_year('201314',links)
 links = sal_stat_per_year('201213',links)
+
