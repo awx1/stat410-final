@@ -50,12 +50,11 @@ c_stat <- function(year, stat, logsal, ydata) {
   } else {
     abline(statyear, col='green', lwd = 3)
   }
-  dev.off()
   #png(paste0(stat,"-diagplot.png"), width = 480, height = 480, units = "px")
   png(paste0(stat,"-diagplot.png"))
   par(mfcol = c(2, 2))
   plot(statyear, lwd = 3)
-  dev.off()
+  while (!is.null(dev.list()))  dev.off()
   
   return(r2)
 }
@@ -88,9 +87,9 @@ c_y_stat <- function(ydata) {
   insig = c()
   
   for (idx in 1:length(ar2)) {
-    if (ar2[idx] >= 0.3) {
+    if (ar2[idx] >= 0.2551) {
       sig = append(sig, mheaders[idx])
-    } else if (ar2[idx] < 0.1) {
+    } else if (ar2[idx] <= 0.0678) {
       insig = append(insig, mheaders[idx])
     }
   }
@@ -98,10 +97,39 @@ c_y_stat <- function(ydata) {
   print(year)
   print(paste("Significant:", sig))
   print(paste("Insignificant:", insig))
+  return(ar2)
 }
 
-c_y_stat(year1920)
+## Store the r^2 values
+r2_tot <- list()
+idx = 1
+for (year_dat in years_dat) {
+  ## Function call
+  aggr_r2 <- c_y_stat(year_dat)
+  r2_tot[[idx]] = aggr_r2
+  
+  idx = idx + 1
+}
 
+## Store quantiles
+first <- c()
+median <- c()
+third <- c()
+for (r2 in r2_tot) {
+  ## Calculate quantiles
+  bp <- quantile(r2, c(0.25,0.5,0.75))
+  first <- append(first, bp[[1]])
+  median <- append(median, bp[[2]])
+  third <- append(third, bp[[3]])
+}
+
+## Mean of quantiles: this is how I set my bounds for significance
+mean(first) ## 0.06697005
+mean(median) ## 0.1700509
+mean(third) ## 0.2502852
+tot <- unlist(r2_tot)
+quantile(tot, c(0.25,0.5,0.75))
+# 0.06780191 0.17282437 0.25510792 
 
 
 
