@@ -148,3 +148,5 @@ links = sal_stat_per_year('201415',links)
 links = sal_stat_per_year('201314',links)
 links = sal_stat_per_year('201213',links)
 
+### Execute ./process.py in the correct directory to merge the csv files
+
