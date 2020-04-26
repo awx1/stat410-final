@@ -1,0 +1,46 @@
+
+Call:
+lm(formula = logsal ~ xdata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.50722 -0.23768  0.05378  0.27123  1.32326 
+
+Coefficients: (1 not defined because of singularities)
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  4.605987   0.326703  14.098  < 2e-16 ***
+xdataPosC   -0.008470   0.109624  -0.077 0.938451    
+xdataPosPF   0.003750   0.078307   0.048 0.961829    
+xdataPosPG  -0.277700   0.070012  -3.966 8.53e-05 ***
+xdataPosSF  -0.007187   0.062579  -0.115 0.908618    
+xdataPosSG         NA         NA      NA       NA    
+xdataAge     0.029325   0.004967   5.904 7.14e-09 ***
+xdataG       0.006477   0.001130   5.734 1.83e-08 ***
+xdataGS     -0.001995   0.001429  -1.396 0.163448    
+xdataMP      0.004514   0.007538   0.599 0.549593    
+xdataFG      0.245660   0.438283   0.561 0.575422    
+xdataFGA    -0.162215   0.388396  -0.418 0.676406    
+xdataFG.     0.420543   1.409208   0.298 0.765521    
+xdataX3P    -0.155243   0.464342  -0.334 0.738293    
+xdataX3PA    0.168243   0.389482   0.432 0.665980    
+xdataX3P.    0.116708   0.223415   0.522 0.601670    
+xdataX2P    -0.106372   0.439715  -0.242 0.808962    
+xdataX2PA    0.134773   0.392808   0.343 0.731687    
+xdataX2P.    0.379693   0.610007   0.622 0.533978    
+xdataeFG.   -0.821987   1.220409  -0.674 0.500964    
+xdataFT      0.044355   0.116982   0.379 0.704752    
+xdataFTA    -0.031838   0.094361  -0.337 0.735972    
+xdataFT.     0.213894   0.216998   0.986 0.324829    
+xdataORB     0.319499   0.390073   0.819 0.413192    
+xdataDRB     0.293877   0.388447   0.757 0.449732    
+xdataTRB    -0.260068   0.387700  -0.671 0.502706    
+xdataAST     0.083173   0.022273   3.734 0.000213 ***
+xdataSTL    -0.120697   0.072013  -1.676 0.094447 .  
+xdataBLK    -0.056699   0.077338  -0.733 0.463874    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.4192 on 436 degrees of freedom
+Multiple R-squared:  0.5207,	Adjusted R-squared:  0.491 
+F-statistic: 17.54 on 27 and 436 DF,  p-value: < 2.2e-16
+

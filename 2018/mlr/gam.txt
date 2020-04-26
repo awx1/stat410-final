@@ -1,0 +1,12 @@
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+logsal ~ s(Age) + s(G) + s(GS) + s(MP) + s(FG) + s(FT) + s(TRB)
+
+Estimated degrees of freedom:
+5.23 5.01 1.00 2.59 1.00 1.00 1.00 
+ total = 17.83 
+
+REML score: 282.2091     

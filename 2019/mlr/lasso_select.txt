@@ -1,0 +1,1 @@
+[1] "Age" "G"   "GS"  "MP"  "FG"  "FGA" "FT"  "DRB"

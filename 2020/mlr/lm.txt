@@ -1,0 +1,46 @@
+
+Call:
+lm(formula = logsal ~ xdata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.49768 -0.20535  0.03627  0.24519  0.91857 
+
+Coefficients: (1 not defined because of singularities)
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  5.9775632  0.3211697  18.612  < 2e-16 ***
+xdataPosC    0.2090367  0.0840500   2.487   0.0133 *  
+xdataPosPF   0.0310325  0.0617000   0.503   0.6153    
+xdataPosPG  -0.0623073  0.0667101  -0.934   0.3508    
+xdataPosSF   0.0132969  0.0574607   0.231   0.8171    
+xdataPosSG          NA         NA      NA       NA    
+xdataAge     0.0372862  0.0046436   8.030 9.83e-15 ***
+xdataG       0.0009039  0.0012333   0.733   0.4640    
+xdataGS     -0.0003116  0.0013264  -0.235   0.8144    
+xdataMP      0.0125069  0.0067348   1.857   0.0640 .  
+xdataFG     -0.1198357  0.3710355  -0.323   0.7469    
+xdataFGA    -0.2921204  0.3364097  -0.868   0.3857    
+xdataFG.     2.0093880  1.1293926   1.779   0.0759 .  
+xdataX3P     0.3164620  0.3771424   0.839   0.4019    
+xdataX3PA    0.2641747  0.3336496   0.792   0.4289    
+xdataX3P.    0.1836445  0.2347707   0.782   0.4345    
+xdataX2P     0.2437486  0.3711088   0.657   0.5117    
+xdataX2PA    0.2464347  0.3391355   0.727   0.4678    
+xdataX2P.   -0.3988619  0.4300368  -0.928   0.3542    
+xdataeFG.   -3.2456284  1.1605309  -2.797   0.0054 ** 
+xdataFT      0.0230313  0.1062972   0.217   0.8286    
+xdataFTA    -0.0089683  0.0859166  -0.104   0.9169    
+xdataFT.    -0.1580361  0.2148292  -0.736   0.4624    
+xdataORB     0.5200125  0.3699402   1.406   0.1606    
+xdataDRB     0.5727033  0.3717968   1.540   0.1242    
+xdataTRB    -0.5632235  0.3708446  -1.519   0.1296    
+xdataAST     0.0332415  0.0208566   1.594   0.1117    
+xdataSTL     0.0705080  0.0682148   1.034   0.3019    
+xdataBLK     0.1250066  0.0606731   2.060   0.0400 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.3677 on 422 degrees of freedom
+Multiple R-squared:  0.5112,	Adjusted R-squared:  0.4799 
+F-statistic: 16.35 on 27 and 422 DF,  p-value: < 2.2e-16
+

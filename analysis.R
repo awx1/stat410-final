@@ -30,8 +30,11 @@ headers = c('Rk','Player', 'Link', 'Pos', 'Age', 'Tm', 'G', 'GS', 'MP', 'FG', 'F
 mheaders = c('Age', 'G', 'GS', 'MP', 'FG', 'FGA', 'FG.', 'X3P', 'X3PA', 'X3P.', 'X2P', 'X2PA', 'X2P.', 'eFG.', 'FT', 'FTA', 'FT.', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS')
 years_dat = list(year1920, year1819, year1718, year1617, year1516, year1415, year1314, year1213)
 
+plot(year_tot$Age,log10(year_tot$Salary))
+
 ### Analysis
 c_stat <- function(year, stat, logsal, ydata) {
+  ### Plots the data for each statistic for a specific year
   # ydata: Entire dataset for specific year
   # logsal: Log 10 salary data
   # stat: Specific statistic examining (string)
@@ -60,6 +63,7 @@ c_stat <- function(year, stat, logsal, ydata) {
 }
 
 c_y_stat <- function(ydata) {
+  ### Plots the data for each statistic for all years
   # ydata: Entire dataset for specific year
   
   logsal = log10(ydata$Salary)
@@ -130,6 +134,5 @@ mean(third) ## 0.2502852
 tot <- unlist(r2_tot)
 quantile(tot, c(0.25,0.5,0.75))
 # 0.06780191 0.17282437 0.25510792 
-
 
 

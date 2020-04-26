@@ -1,0 +1,24 @@
+
+Call:
+lm(formula = logsal ~ xdata_mod)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.79909 -0.22771  0.03233  0.27582  1.00858 
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    4.5386579  0.2063378  21.996  < 2e-16 ***
+xdata_modAge   0.0340156  0.0044717   7.607 1.56e-13 ***
+xdata_modGS    0.0066604  0.0008272   8.052 6.87e-15 ***
+xdata_modFG.   2.7959107  0.5069509   5.515 5.79e-08 ***
+xdata_modeFG. -2.2256394  0.5076807  -4.384 1.44e-05 ***
+xdata_modFT.   0.7446317  0.1499229   4.967 9.57e-07 ***
+xdata_modSTL   0.1171428  0.0553638   2.116   0.0349 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.4011 on 466 degrees of freedom
+Multiple R-squared:  0.3834,	Adjusted R-squared:  0.3755 
+F-statistic: 48.29 on 6 and 466 DF,  p-value: < 2.2e-16
+
