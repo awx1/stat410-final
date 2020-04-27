@@ -28,7 +28,7 @@ c_stat <- function(year, stat, logsal, ydata, pos) {
   
   statyear <- lm(logsal ~ ydata[,stat])
   r2 <- summary(statyear)$adj.r.squared
-  png(paste0(stat,"-slr.png"))
+  #png(paste0(stat,"-slr.png"))
   par(mfcol = c(1,1))
   plot(ydata[,stat], logsal, xlab=stat, ylab='Salary (log10-scale)', main = paste0(year, " ", pos, ": Salary (log10-scale) vs. ", stat))
   if (r2 < 0.1) {
@@ -38,10 +38,10 @@ c_stat <- function(year, stat, logsal, ydata, pos) {
   } else {
     abline(statyear, col='green', lwd = 3)
   }
-  png(paste0(stat,"-diagplot.png"))
+  #png(paste0(stat,"-diagplot.png"))
   par(mfcol = c(2, 2))
   plot(statyear, lwd = 3)
-  while (!is.null(dev.list()))  dev.off()
+  #while (!is.null(dev.list()))  dev.off()
   
   return(r2)
 }
@@ -52,10 +52,10 @@ c_y_stat <- function(ydata) {
   
   year <- ydata$Year[1]
   ar2_pos <- list()
-  mainDir <- "/Users/alexanderxiong/Documents/STAT 410/stat410-final"
-  subDir <- year
-  dir.create(file.path(mainDir, subDir), showWarnings = FALSE)
-  setwd(file.path(mainDir, subDir))
+  #mainDir <- "/Users/alexanderxiong/Documents/STAT 410/stat410-final"
+  #subDir <- year
+  #dir.create(file.path(mainDir, subDir), showWarnings = FALSE)
+  #setwd(file.path(mainDir, subDir))
   
   pos <- c('C', 'PF', 'SF', 'SG', 'PG')
   idx_p = 1
@@ -64,24 +64,24 @@ c_y_stat <- function(ydata) {
     logsal = log10(ydat_mod$Salary)
     ar2 <- rep(26,0)
     
-    mdir_pos <- getwd()
-    subdir_pos <- p
-    dir.create(file.path(mdir_pos, subdir_pos), showWarnings = FALSE)
-    setwd(file.path(mdir_pos, subdir_pos))
+    #mdir_pos <- getwd()
+    #subdir_pos <- p
+    #dir.create(file.path(mdir_pos, subdir_pos), showWarnings = FALSE)
+    #setwd(file.path(mdir_pos, subdir_pos))
     
     for (idx in 1:length(mheaders)) {
-      mdir <- getwd()
-      subdir <- paste0(mheaders[idx],"-plots")
-      dir.create(file.path(mdir, subdir), showWarnings = FALSE)
-      setwd(file.path(mdir, subdir))
+      #mdir <- getwd()
+      #subdir <- paste0(mheaders[idx],"-plots")
+      #dir.create(file.path(mdir, subdir), showWarnings = FALSE)
+      #setwd(file.path(mdir, subdir))
       
       r2 <- c_stat(year, mheaders[idx], logsal, ydat_mod, p)
-      setwd(mdir)
+      #setwd(mdir)
       
       ar2[idx] <- r2
     }
     
-    setwd(mdir_pos)
+    #setwd(mdir_pos)
     
     sig = c()
     insig = c()
@@ -100,11 +100,12 @@ c_y_stat <- function(ydata) {
     
     idx_p = idx_p + 1
   }
-  setwd(mainDir)
+  #setwd(mainDir)
   
   return(ar2_pos)
 }
 
+### Run this code: Be wary of the file saving above
 ## Store the r^2 values
 r2_tot <- list()
 idx = 1
@@ -115,7 +116,9 @@ for (year_dat in years_dat) {
   
   idx = idx + 1
 }
+###
 
+## This store the r2 values as well as the actual parameter that are significant vs. insignificant
 total_sig_insig_stats = list() ## total list store
 idx = 1
 for (year_dat in r2_tot) { ## iterate over each year (8 iterations)

@@ -86,7 +86,7 @@ def sal_stat_per_year(year, links):
 				print("Attempted less than 1 FG per game: " + str(row[1]))
 				pass
 			elif float(row[20]) < 0.2:
-				print("Attempted less than 1 FT per game: " + str(row[1]))
+				print("Attempted less than 0.2 FT per game: " + str(row[1]))
 				pass
 			elif float(row[30]) < 1:
 				print("Averaged less than 1 point per game: " + str(row[1]))
